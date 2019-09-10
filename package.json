@@ -1,6 +1,6 @@
 {
   "name": "react-stripe-script-loader",
-  "version": "1.0.7",
+  "version": "1.0.9",
   "description": "React component that lets load Stripe script and shows React Stripe Elements",
   "main": "index.js",
   "scripts": {
@@ -21,6 +21,7 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
   },
+  "keywords": ["react", "stripe", "stripe-elements", "script", "payment", "performance" ],
   "devDependencies": {
     "@babel/cli": "^7.1.5",
     "@babel/core": "^7.1.6",
