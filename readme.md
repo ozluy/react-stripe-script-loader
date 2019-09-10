@@ -60,9 +60,8 @@ props
  string, React elements array, React component
  
 
-Buy me a coffee ☕️
-===
-[![Buy Me a Coffee](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/ozluy)
+
+<a href="https://paypal.me/ozluy"> <img src="https://github.com/ozluy/react-stripe-script-loader/blob/master/buy-me-a-coffee-with-paypal.png" /></a>
 
 Thanks
 
