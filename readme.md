@@ -8,7 +8,7 @@ React Stripe Elements Loader
 <StripeScriptLoader />
 ```
 
-<a href="http://ozluy.github.io/projects/react-stripe-elements-loader"> Demo </a>
+<a target="_blank" rel="noopener noreferrer" href="http://ozluy.github.io/projects/react-stripe-script-loader"> Demo </a>
 
 install 
 ===
