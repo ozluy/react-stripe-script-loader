@@ -1,6 +1,6 @@
 {
   "name": "react-stripe-script-loader",
-  "version": "1.0.0",
+  "version": "1.0.7",
   "description": "React component that lets load Stripe script and shows React Stripe Elements",
   "main": "index.js",
   "scripts": {

@@ -7,10 +7,6 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _loadScript = _interopRequireDefault(require("./loadScript"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -38,6 +34,45 @@ var StripeScriptLoader = function StripeScriptLoader(_ref) {
       setStripeLoaded = _useState2[1];
 
   (0, _react.useEffect)(function () {
+    var loadScript = function loadScript(src, uniqueId) {
+      return new Promise(function (resolve, reject) {
+        var scriptElement = document.getElementById(uniqueId);
+
+        if (!scriptElement) {
+          var _script = document.createElement('script');
+
+          _script.src = src;
+          _script.id = uniqueId;
+
+          var handleLoadScriptSuccess = function handleLoadScriptSuccess() {
+            return resolve({
+              successful: true
+            });
+          };
+
+          var handleLoadScriptFail = function handleLoadScriptFail(event) {
+            return reject({
+              error: event
+            });
+          };
+
+          _script.addEventListener('load', handleLoadScriptSuccess, {
+            once: true
+          });
+
+          _script.addEventListener('error', handleLoadScriptFail, {
+            once: true
+          });
+
+          document.head.appendChild(_script);
+        } else {
+          resolve({
+            successful: true
+          });
+        }
+      });
+    };
+
     var fetchData =
     /*#__PURE__*/
     function () {
@@ -50,7 +85,7 @@ var StripeScriptLoader = function StripeScriptLoader(_ref) {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return (0, _loadScript.default)(script, uniqueId);
+                return loadScript(script, uniqueId);
 
               case 2:
                 result = _context.sent;
@@ -76,49 +111,4 @@ var StripeScriptLoader = function StripeScriptLoader(_ref) {
 };
 
 var _default = StripeScriptLoader;
-exports.default = _default;
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var loadScript = function loadScript(src, uniqueId) {
-  return new Promise(function (resolve, reject) {
-    var scriptElement = document.getElementById(uniqueId);
-
-    if (!scriptElement) {
-      var script = document.createElement('script');
-      script.src = src;
-      script.id = uniqueId;
-
-      var handleLoadScriptSuccess = function handleLoadScriptSuccess() {
-        return resolve({
-          successful: true
-        });
-      };
-
-      var handleLoadScriptFail = function handleLoadScriptFail(event) {
-        return reject({
-          error: event
-        });
-      };
-
-      script.addEventListener('load', handleLoadScriptSuccess, {
-        once: true
-      });
-      script.addEventListener('error', handleLoadScriptFail, {
-        once: true
-      });
-      document.head.appendChild(script);
-    } else {
-      resolve({
-        successful: true
-      });
-    }
-  });
-};
-
-var _default = loadScript;
 exports.default = _default;
