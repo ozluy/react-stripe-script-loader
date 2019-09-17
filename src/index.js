@@ -4,7 +4,7 @@ const StripeScriptLoader = ({
   children,
   uniqueId,
   script,
-  loader = <>Loading...</>,
+  loader = 'Loading...',
 }) => {
   const [stripeLoaded, setStripeLoaded] = useState({})
   useEffect(() => {

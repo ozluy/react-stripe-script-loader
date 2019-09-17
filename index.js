@@ -26,7 +26,7 @@ var StripeScriptLoader = function StripeScriptLoader(_ref) {
       uniqueId = _ref.uniqueId,
       script = _ref.script,
       _ref$loader = _ref.loader,
-      loader = _ref$loader === void 0 ? _react.default.createElement(_react.default.Fragment, null, "Loading...") : _ref$loader;
+      loader = _ref$loader === void 0 ? 'Loading...' : _ref$loader;
 
   var _useState = (0, _react.useState)({}),
       _useState2 = _slicedToArray(_useState, 2),
