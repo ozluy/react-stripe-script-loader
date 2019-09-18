@@ -1,7 +1,6 @@
 import React from 'react'
 
 class StripeScriptLoader extends React.Component {
-  defaultP
   constructor(props) {
     super(props)
     this.state = {
