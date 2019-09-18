@@ -1,41 +1,55 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 
-const StripeScriptLoader = ({
-  children,
-  uniqueId,
-  script,
-  loader = 'Loading...',
-}) => {
-  const [stripeLoaded, setStripeLoaded] = useState({})
-  useEffect(() => {
-    const loadScript = (src, uniqueId) =>
-      new Promise((resolve, reject) => {
-        const scriptElement = document.getElementById(uniqueId)
-
-        if (!scriptElement) {
-          const script = document.createElement('script')
-          script.src = src
-          script.id = uniqueId
-
-          const handleLoadScriptSuccess = () => resolve({ successful: true })
-          const handleLoadScriptFail = event => reject({ error: event })
-
-          script.addEventListener('load', handleLoadScriptSuccess, {
-            once: true,
-          })
-          script.addEventListener('error', handleLoadScriptFail, { once: true })
-          document.head.appendChild(script)
-        } else {
-          resolve({ successful: true })
-        }
-      })
-    const fetchData = async () => {
-      const result = await loadScript(script, uniqueId)
-      setStripeLoaded(result)
+class StripeScriptLoader extends React.Component {
+  defaultP
+  constructor(props) {
+    super(props)
+    this.state = {
+      stripeLoaded: {},
     }
-    fetchData()
-  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+    this.loadScript = this.loadScript.bind(this)
+  }
 
-  return stripeLoaded.successful ? children : loader
+  async componentWillMount() {
+    const { script, uniqueId } = this.props
+    const stripeLoaded = await this.loadScript(script, uniqueId)
+    this.setState({ stripeLoaded })
+  }
+
+  loadScript = (src, uniqueId) =>
+    new Promise((resolve, reject) => {
+      const scriptElement = document.getElementById(uniqueId)
+
+      if (!scriptElement) {
+        const script = document.createElement('script')
+        script.src = src
+        script.id = uniqueId
+
+        const handleLoadScriptSuccess = () => resolve({ successful: true })
+        const handleLoadScriptFail = event => reject({ error: event })
+
+        script.addEventListener('load', handleLoadScriptSuccess, {
+          once: true,
+        })
+        script.addEventListener('error', handleLoadScriptFail, { once: true })
+        document.head.appendChild(script)
+      } else {
+        resolve({ successful: true })
+      }
+    })
+
+  render() {
+    const { stripeLoaded } = this.state
+    const { children, loader } = this.props
+
+    return <div>{stripeLoaded.successful ? children : loader}</div>
+  }
 }
+
+StripeScriptLoader.defaultProps = {
+  loader: 'Loading...',
+  uniqueId: 'myUniqueId',
+  script: 'https://js.stripe.com/v3/',
+}
+
 export default StripeScriptLoader
