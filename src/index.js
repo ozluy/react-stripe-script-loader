@@ -15,8 +15,8 @@ class StripeScriptLoader extends React.Component {
     this.setState({ stripeLoaded })
   }
 
-  loadScript = (src, uniqueId) =>
-    new Promise((resolve, reject) => {
+  loadScript(src, uniqueId) {
+    return new Promise((resolve, reject) => {
       const scriptElement = document.getElementById(uniqueId)
 
       if (!scriptElement) {
@@ -36,6 +36,7 @@ class StripeScriptLoader extends React.Component {
         resolve({ successful: true })
       }
     })
+  }
 
   render() {
     const { stripeLoaded } = this.state

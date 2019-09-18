@@ -3,46 +3,98 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
-var _react = _interopRequireWildcard(require("react"));
+var _react = _interopRequireDefault(require("react"));
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-var StripeScriptLoader = function StripeScriptLoader(_ref) {
-  var children = _ref.children,
-      uniqueId = _ref.uniqueId,
-      script = _ref.script,
-      _ref$loader = _ref.loader,
-      loader = _ref$loader === void 0 ? 'Loading...' : _ref$loader;
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-  var _useState = (0, _react.useState)({}),
-      _useState2 = _slicedToArray(_useState, 2),
-      stripeLoaded = _useState2[0],
-      setStripeLoaded = _useState2[1];
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-  (0, _react.useEffect)(function () {
-    var loadScript = function loadScript(src, uniqueId) {
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var StripeScriptLoader =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(StripeScriptLoader, _React$Component);
+
+  function StripeScriptLoader(props) {
+    var _this;
+
+    _classCallCheck(this, StripeScriptLoader);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(StripeScriptLoader).call(this, props));
+    _this.state = {
+      stripeLoaded: {}
+    };
+    _this.loadScript = _this.loadScript.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(StripeScriptLoader, [{
+    key: "componentWillMount",
+    value: function () {
+      var _componentWillMount = _asyncToGenerator(
+      /*#__PURE__*/
+      regeneratorRuntime.mark(function _callee() {
+        var _this$props, script, uniqueId, stripeLoaded;
+
+        return regeneratorRuntime.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _this$props = this.props, script = _this$props.script, uniqueId = _this$props.uniqueId;
+                _context.next = 3;
+                return this.loadScript(script, uniqueId);
+
+              case 3:
+                stripeLoaded = _context.sent;
+                this.setState({
+                  stripeLoaded: stripeLoaded
+                });
+
+              case 5:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function componentWillMount() {
+        return _componentWillMount.apply(this, arguments);
+      }
+
+      return componentWillMount;
+    }()
+  }, {
+    key: "loadScript",
+    value: function loadScript(src, uniqueId) {
       return new Promise(function (resolve, reject) {
         var scriptElement = document.getElementById(uniqueId);
 
         if (!scriptElement) {
-          var _script = document.createElement('script');
-
-          _script.src = src;
-          _script.id = uniqueId;
+          var script = document.createElement('script');
+          script.src = src;
+          script.id = uniqueId;
 
           var handleLoadScriptSuccess = function handleLoadScriptSuccess() {
             return resolve({
@@ -56,59 +108,38 @@ var StripeScriptLoader = function StripeScriptLoader(_ref) {
             });
           };
 
-          _script.addEventListener('load', handleLoadScriptSuccess, {
+          script.addEventListener('load', handleLoadScriptSuccess, {
             once: true
           });
-
-          _script.addEventListener('error', handleLoadScriptFail, {
+          script.addEventListener('error', handleLoadScriptFail, {
             once: true
           });
-
-          document.head.appendChild(_script);
+          document.head.appendChild(script);
         } else {
           resolve({
             successful: true
           });
         }
       });
-    };
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var stripeLoaded = this.state.stripeLoaded;
+      var _this$props2 = this.props,
+          children = _this$props2.children,
+          loader = _this$props2.loader;
+      return _react["default"].createElement("div", null, stripeLoaded.successful ? children : loader);
+    }
+  }]);
 
-    var fetchData =
-    /*#__PURE__*/
-    function () {
-      var _ref2 = _asyncToGenerator(
-      /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee() {
-        var result;
-        return regeneratorRuntime.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _context.next = 2;
-                return loadScript(script, uniqueId);
+  return StripeScriptLoader;
+}(_react["default"].Component);
 
-              case 2:
-                result = _context.sent;
-                setStripeLoaded(result);
-
-              case 4:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee, this);
-      }));
-
-      return function fetchData() {
-        return _ref2.apply(this, arguments);
-      };
-    }();
-
-    fetchData();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
-
-  return stripeLoaded.successful ? children : loader;
+StripeScriptLoader.defaultProps = {
+  loader: 'Loading...',
+  uniqueId: 'myUniqueId',
+  script: 'https://js.stripe.com/v3/'
 };
-
 var _default = StripeScriptLoader;
-exports.default = _default;
+exports["default"] = _default;
