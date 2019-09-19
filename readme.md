@@ -1,6 +1,9 @@
 React Stripe Script Loader
 ====
 
+[![npm version](http://img.shields.io/npm/v/REPO.svg?style=flat)](https://npmjs.org/package/react-stripe-script-loader "View this project on npm")
+
+
 <img width="500" src="https://raw.githubusercontent.com/ozluy/react-stripe-script-loader/master/Screenshot%202019-09-10%20at%2022.39.54.png" />
 
 
@@ -59,6 +62,12 @@ props
  #### loader `ReactElement`
  string, React elements array, React component
  
+ important note
+===
+
+For older versions of React ^15.0.0 please install following version with tag `react-version-15`
+
+ `npm install react-stripe-script-loader@react-version-15 -S`
 
 
 <a href="https://paypal.me/ozluy"> <img src="https://github.com/ozluy/react-stripe-script-loader/blob/master/buy-me-a-coffee-with-paypal.png" /></a>
