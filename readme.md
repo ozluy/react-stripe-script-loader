@@ -3,6 +3,13 @@ React Stripe Script Loader
 
 [![npm version](https://badge.fury.io/js/react-stripe-script-loader.svg)](https://badge.fury.io/js/react-stripe-script-loader)
 
+dependencies
+===
+```json
+ "react": "^16.9.0",
+ "react-dom": "^16.9.0"
+ ```
+
 
 <img width="500" src="https://raw.githubusercontent.com/ozluy/react-stripe-script-loader/master/Screenshot%202019-09-10%20at%2022.39.54.png" />
 
