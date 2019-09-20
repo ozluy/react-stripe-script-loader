@@ -1,5 +1,5 @@
 {
-  "name": "@ozluy/react-stripe-script-loader",
+  "name": "react-stripe-script-loader",
   "version": "1.0.16",
   "description": "React component that lets load Stripe script and shows React Stripe Elements",
   "main": "index.js",
@@ -38,7 +38,7 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/ozluy"
+    "publishConfig": {
+      "registry": "https://npm.pkg.github.com/ozluy/react-stripe-script-loader"
+    }
   }
-}
