@@ -1,7 +1,7 @@
 React Stripe Script Loader
 ====
 
-[![npm version](https://badge.fury.io/js/react-stripe-script-loader.svg)](https://badge.fury.io/js/react-stripe-script-loader)
+[![npm version](https://badge.fury.io/js/@ozluy/react-stripe-script-loader.svg)](https://badge.fury.io/js/react-stripe-script-loader)
 
 dependencies
 ===
@@ -28,14 +28,14 @@ install
 ===
 Install as a node module
 
-`npm i  react-stripe-script-loader -S`
+`npm i  @ozluy/react-stripe-script-loader -S`
 
 
 usage
 ===
 ```jsx
 import React from 'react'
-import StripeScriptLoader from 'react-stripe-script-loader'
+import StripeScriptLoader from '@ozluy/react-stripe-script-loader'
 import {
   StripeProvider,
   Elements,
