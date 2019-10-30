@@ -2,6 +2,7 @@ React Stripe Script Loader
 ====
 
 [![npm version](https://badge.fury.io/js/react-stripe-script-loader.svg)](https://badge.fury.io/js/react-stripe-script-loader)
+![npm download](https://img.shields.io/npm/dt/react-stripe-script-loader.svg)
 
 dependencies
 ===
