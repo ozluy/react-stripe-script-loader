@@ -82,7 +82,7 @@ For older versions of React ^15.0.0 please install following version with tag `r
  `npm install react-stripe-script-loader@react-version-15 -S`
 
 
-<a href="https://paypal.me/ozluy"> <img src="https://github.com/ozluy/react-stripe-script-loader/blob/master/buy-me-a-coffee-with-paypal.png" /></a>
+<a href="https://paypal.me/ozluy"> <img src="https://raw.githubusercontent.com/ozluy/react-stripe-script-loader/master/buy-me-a-coffee-with-paypal.png" /></a>
 
 Thanks
 

@@ -1,12 +1,13 @@
 {
-  "name": "@ozluy/react-stripe-script-loader",
-  "version": "1.0.0",
+  "name": "react-stripe-script-loader",
+  "version": "1.1.0",
   "description": "React component that lets load Stripe script and shows React Stripe Elements",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "./node_modules/.bin/babel src --out-file index.js"
   },
+  "private": false,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ozluy/react-stripe-script-loader.git"
@@ -37,8 +38,5 @@
     "@babel/preset-react": "^7.0.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
-  },
-    "publishConfig": {
-      "registry": "https://npm.pkg.github.com/"
-    }
   }
+}
