@@ -12,8 +12,6 @@ dependencies
  ```
 
 
-<img width="500" src="https://raw.githubusercontent.com/ozluy/react-stripe-script-loader/master/Screenshot%202019-09-10%20at%2022.39.54.png" />
-
 
 ```
 <StripeScriptLoader />
