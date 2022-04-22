@@ -17,7 +17,10 @@ const StripeScriptLoader = ({
           script.src = src
           script.id = uniqueId
 
-          const handleLoadScriptSuccess = () => resolve({ successful: true })
+          const handleLoadScriptSuccess = () => {
+            script.isLoaded = true;
+            resolve({successful: true});
+          }
           const handleLoadScriptFail = event => reject({ error: event })
 
           script.addEventListener('load', handleLoadScriptSuccess, {
@@ -25,6 +28,11 @@ const StripeScriptLoader = ({
           })
           script.addEventListener('error', handleLoadScriptFail, { once: true })
           document.head.appendChild(script)
+        } else if (!scriptElement.isLoaded) {
+          const handleLoadScriptSuccess = () => resolve({successful: true})
+          scriptElement.addEventListener('load', handleLoadScriptSuccess, {
+            once: true,
+          })
         } else {
           resolve({ successful: true })
         }
